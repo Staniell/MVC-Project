@@ -1,0 +1,77 @@
+﻿@model IEnumerable<mp.Models.Borrow_List>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (Session["Admin_Log"] == null)
+{
+    Response.Redirect("Admin_Login/Index");
+}
+<p>
+    <a href="~/Penalty_Borrowers.aspx">Borrowers with penalty</a>
+</p>
+
+
+<h2>Borrower List</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Borrower_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.Book_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Borrowed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Return)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Paid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fee)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reg_Accounts.Borrower_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Book_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Borrowed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Return)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Paid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Book_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Book_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Book_ID })
+            </td>
+        </tr>
+    }
+
+</table>

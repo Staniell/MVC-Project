@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="mp.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Library Home</title>
+    <meta name="viewport" content="width=device=width, initial-scale=1.0"/>
+    <!--Bootsrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <style>
+        .text-responsive{
+            font-size:calc(100% +1vw+1vh);
+        }
+        #nav1
+        {  
+            background-color:rgba(255, 195, 18, 0.8); 
+            opacity: 0.9; 
+            filter:(opacity=20);       
+        } 
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-image: url('pictures/wall.jpg')">
+    <form id="form1" runat="server">
+        <div>
+
+              <nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: rgba(255, 195, 18, 0.8);" id="nav1">
+              <a class="navbar-brand" href="#">
+                  <img src="pictures/bookicon.png" width="50" height="50"  alt="">
+                 Library
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="MainPage.aspx">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="LogIn.aspx">
+                        <asp:Label ID="Logz" runat="server" Text="Log In"></asp:Label></a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" runat="server" id="acc" visible="true" href="Account.aspx">Account</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" runat="server" onServerClick="Unnamed_ServerClick" href="Books.aspx">Books</a>
+                  </li>
+                   
+                 
+                </ul>
+                <div class="form-inline">
+                  <asp:TextBox class="form-control " id="search_txt" runat="server" type="search" placeholder="Search" aria-label="Search"></asp:TextBox>
+                    <asp:Button ID="Button1" CssClass="btn btn-outline-success my-2 my-sm-0" OnClick="Button1_Click" runat="server" Text="Search" />
+                 <%-- <asp:Button class="btn btn-outline-success my-2 my-sm-0" runat="server" type="submit">Search</asp:Button>--%>
+                </div>
+                  <%--<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
+              </div>
+            </nav>
+         </div>
+        
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
